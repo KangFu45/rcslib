@@ -20,6 +20,7 @@ src/test/.deps/
 src/test/.dirstamp
 src/.deps/
 src/.dirstamp
+etc/win_vc_2012_x64/rcs/.vs
 autom4te.cache/
 config.status
 .deps/
@@ -141,3 +142,4 @@ etc/win_vc_2012_x64/rcs/nmltest/x64/
 etc/win_vc_2012_x64/rcs/rcs.opensdf
 etc/win_vc_2012_x64/rcs/testpmcpp/x64/
 etc/win_vc_2012_x64/rcs/x64/
+*.ipch

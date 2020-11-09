@@ -1,0 +1,21 @@
+old style
+
+# Buffers
+# Name		Type	Host	size	neut?	(old)	buffer# MP ---
+B amCommand	SHMEM	localhost	1024	0	0	1	16 1001 TCP=5005 xdr 
+B amStatus	SHMEM	localhost	1024	0	0	2	16 1002 TCP=5005 xdr 
+
+# Processes
+# Name		Buffer		Type	Host		0ps	server? timeout master? cnum
+
+P amServer	amCommand	LOCAL 	localhost		W	1	1.0	1	0
+P amServer	amStatus		LOCAL 	localhost		R	1	1.0	1	0
+
+P amClient1	amCommand	LOCAL	localhost		R	0	1.0	0	1
+P amClient1	amStatus		LOCAL	localhost		W	0	1.0	0	1
+
+P amClient2	amCommand	LOCAL	localhost		W	0	1.0	0	2
+P amClient2	amStatus		LOCAL	localhost		R	0	1.0	0	2
+
+P amClientX	amCommand	REMOTE	192.168.56.1	R	0	10.0	0	3
+P amClientX	amStatus		REMOTE	192.168.56.1	R	0	10.0	0	3

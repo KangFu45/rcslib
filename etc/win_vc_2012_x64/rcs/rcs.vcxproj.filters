@@ -254,6 +254,7 @@
     <ClCompile Include="..\..\..\src\cms\ttymem.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\src\cms\locmem.cc" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="rcs_config.h">

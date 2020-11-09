@@ -21,31 +21,32 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{8FF923E6-7825-4AD8-939F-AEDD75D0FEDF}</ProjectGuid>
     <RootNamespace>rcs</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v110</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v110</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v110</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v110</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -78,12 +79,16 @@
     <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(MSBuildProjectDirectory)\..\..\..\src\;$(MSBuildProjectDirectory)\..\..\..\src\os_intf;$(MSBuildProjectDirectory)\..\..\..\src\nt_xdr;$(MSBuildProjectDirectory)\..\..\..\src\posemath;$(MSBuildProjectDirectory)\..\..\..\src\cms;$(MSBuildProjectDirectory)\..\..\..\src\stg_clss;$(IncludePath)</IncludePath>
     <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(MSBuildProjectDirectory)\..\..\..\src\;$(MSBuildProjectDirectory)\..\..\..\src\os_intf;$(MSBuildProjectDirectory)\..\..\..\src\nt_xdr;$(MSBuildProjectDirectory)\..\..\..\src\posemath;$(MSBuildProjectDirectory)\..\..\..\src\cms;$(MSBuildProjectDirectory)\..\..\..\src\stg_clss;$(IncludePath)</IncludePath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)\..\..\..\src;$(SolutionDir)\..\..\..\src\os_intf;$(SolutionDir)\..\..\..\src\nt_xdr;$(SolutionDir)\..\..\..\src\cms;$(SolutionDir)\..\..\..\src\print;$(SolutionDir)\..\..\..\src\stg_clss;$(SolutionDir)\..\..\..\src\node;$(SolutionDir)\..\..\..\src\posemath;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>HAVE_CONFIG_H;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>HAVE_CONFIG_H;ENABLE_RCS_LOCMEM;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -131,7 +136,7 @@ copy ..\..\..\src\posemath\*.h "$(OutDir)"\include
       <Optimization>MaxSpeed</Optimization>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)\..\..\..\src;$(SolutionDir)\..\..\..\src\os_intf;$(SolutionDir)\..\..\..\src\nt_xdr;$(SolutionDir)\..\..\..\src\cms;$(SolutionDir)\..\..\..\src\print;$(SolutionDir)\..\..\..\src\stg_clss;$(SolutionDir)\..\..\..\src\node;$(SolutionDir)\..\..\..\src\posemath;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>HAVE_CONFIG_H;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+      <PreprocessorDefinitions>HAVE_CONFIG_H;ENABLE_RCS_LOCMEM;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -265,6 +270,7 @@ copy ..\..\..\src\posemath\*.h "$(OutDir)"\include
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\src\cms\locmem.cc" />
     <ClCompile Include="..\..\..\src\cms\ttyintf.c" />
     <ClCompile Include="..\..\..\src\cms\ttymem.cc" />
     <ClCompile Include="..\..\..\src\cms\tty_srv.cc" />

@@ -609,7 +609,7 @@ versions bear some notice that they have been modified.
 #define HAVE__BEGINTHREAD 1
 
 /* Define to 1 if you have the `_snprintf' function. */
-#define HAVE__SNPRINTF 1
+// #define HAVE__SNPRINTF 1
 
 /* Define to 1 if you have the `_vsnprintf' function. */
 #define HAVE__VSNPRINTF 1
